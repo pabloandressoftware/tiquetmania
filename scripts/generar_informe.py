@@ -370,6 +370,7 @@ def construir():
               "Temporizador Aleatorio Uniforme (500 ms + hasta 1000 ms por defecto) y Temporizador sincronizado opcional (pregunta 8).",
               "Cuatro Grupos de Hilos: uno principal y tres de escalones que se suman con un retraso (pregunta 4). Un grupo con 0 hilos no corre."):
         doc.add_paragraph(x, style="List Bullet")
+    imagen(doc, os.path.join(IMG, "jmeter_plan.png"), "Plan Experimentacion.jmx abierto en JMeter: Grupo de Hilos principal, con usuarios, subida y duración como propiedades.", 16)
     doc.add_heading("Equipo y limitaciones generales", level=2)
     parrafo(doc, "Todo corrió en mi computador: Ubuntu Linux, 16 núcleos y 31 GB de RAM, Java 21, JMeter 5.6.3 y la API de la profesora (Python, un solo proceso). "
                  "JMeter y la API comparten el equipo, así que el resultado mide a los dos juntos. Esa es la principal limitación y aplica a todas las preguntas.", "Limitación: ")
@@ -377,7 +378,7 @@ def construir():
               "Mide lo mismo que PerfMon, pero no es el plugin que pide la guía.",
               "Para la pregunta 4 usé cuatro Grupos de Hilos estándar con retraso de inicio en lugar del Ultimate Thread Group, que es un plugin. El resultado es el mismo escalonado: 50, 100, 250 y 500 usuarios.",
               "Los valores son de una sola ejecución por escenario. Son una referencia, no un promedio de varias repeticiones.",
-              "Las capturas de los reportes son del reporte HTML de JMeter. La captura del escenario es una tabla con los parámetros exactos de cada ejecución."):
+              "Las capturas de los reportes son del reporte HTML de JMeter. La captura de JMeter con el plan abierto está arriba, y en cada pregunta hay una tabla con los parámetros exactos de esa ejecución."):
         doc.add_paragraph(x, style="List Bullet")
     doc.add_heading("Resumen de los 18 escenarios", level=2)
     ids = [("q1-20", "P1 · 20 usuarios"), ("q1-500", "P1 · 500 usuarios"), ("q2-rampup-1s", "P2 · subida 1 s"), ("q2-rampup-60s", "P2 · subida 60 s"),
