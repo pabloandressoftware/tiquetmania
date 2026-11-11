@@ -1,0 +1,86 @@
+{
+ "duracion_s": 126.3,
+ "total": {
+  "muestras": 500,
+  "media_ms": 28442.3,
+  "p90_ms": 126243,
+  "p95_ms": 126253,
+  "p99_ms": 126266,
+  "max_ms": 126273,
+  "error_pct": 16.6,
+  "throughput": 4.0
+ },
+ "por_peticion": {
+  "SeleccionTarifaYCantidad": {
+   "muestras": 500,
+   "media_ms": 28442.3,
+   "p90_ms": 126243,
+   "p95_ms": 126253,
+   "p99_ms": 126266,
+   "max_ms": 126273,
+   "error_pct": 16.6,
+   "throughput": 4.0
+  }
+ },
+ "primeros_5s": {
+  "muestras": 500,
+  "media_ms": 28442.3,
+  "p90_ms": 126243,
+  "p95_ms": 126253,
+  "p99_ms": 126266,
+  "max_ms": 126273,
+  "error_pct": 16.6,
+  "throughput": 4.0
+ },
+ "hilos_max": 500,
+ "serie_10s": [
+  {
+   "desde_s": 0,
+   "muestras": 500,
+   "peticiones_por_s": 50.0,
+   "media_ms": 28442.3,
+   "p95_ms": 126253,
+   "max_ms": 126273,
+   "errores": 83,
+   "hilos_activos": 500
+  }
+ ],
+ "codigos": {
+  "201": 417,
+  "Non HTTP response code: java.net.SocketException": 83
+ },
+ "recursos": {
+  "cpu_equipo_pct": {
+   "media": 10.1,
+   "max": 47.6
+  },
+  "mem_equipo_pct": {
+   "media": 57.2,
+   "max": 60.5
+  },
+  "mem_equipo_usada_mb": {
+   "media": 17733.2,
+   "max": 18741.0,
+   "inicio": 17261.0,
+   "fin": 16906.0
+  },
+  "cpu_jmeter_pct": {
+   "media": 11.6,
+   "max": 437.0
+  },
+  "mem_jmeter_mb": {
+   "media": 392.2,
+   "max": 465.8
+  },
+  "cpu_api_pct": {
+   "media": 0.4,
+   "max": 10.4
+  },
+  "mem_api_mb": {
+   "media": 22.9,
+   "max": 22.9,
+   "inicio": 22.2,
+   "fin": 22.9
+  }
+ }
+}

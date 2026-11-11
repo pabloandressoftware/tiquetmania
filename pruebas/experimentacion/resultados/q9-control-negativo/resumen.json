@@ -1,0 +1,106 @@
+{
+ "duracion_s": 0.8,
+ "total": {
+  "muestras": 120,
+  "media_ms": 3.7,
+  "p90_ms": 4,
+  "p95_ms": 7,
+  "p99_ms": 40,
+  "max_ms": 40,
+  "error_pct": 33.33,
+  "throughput": 151.7
+ },
+ "por_peticion": {
+  "Pago": {
+   "muestras": 40,
+   "media_ms": 2.3,
+   "p90_ms": 3,
+   "p95_ms": 4,
+   "p99_ms": 5,
+   "max_ms": 5,
+   "error_pct": 50.0,
+   "throughput": 57.1
+  },
+  "SeleccionTarifaYCantidad": {
+   "muestras": 40,
+   "media_ms": 2.8,
+   "p90_ms": 5,
+   "p95_ms": 7,
+   "p99_ms": 7,
+   "max_ms": 7,
+   "error_pct": 50.0,
+   "throughput": 53.9
+  },
+  "Tarifas": {
+   "muestras": 40,
+   "media_ms": 6.0,
+   "p90_ms": 40,
+   "p95_ms": 40,
+   "p99_ms": 40,
+   "max_ms": 40,
+   "error_pct": 0.0,
+   "throughput": 51.0
+  }
+ },
+ "primeros_5s": {
+  "muestras": 120,
+  "media_ms": 3.7,
+  "p90_ms": 4,
+  "p95_ms": 7,
+  "p99_ms": 40,
+  "max_ms": 40,
+  "error_pct": 33.33,
+  "throughput": 151.7
+ },
+ "hilos_max": 6,
+ "serie_10s": [
+  {
+   "desde_s": 0,
+   "muestras": 120,
+   "peticiones_por_s": 12.0,
+   "media_ms": 3.7,
+   "p95_ms": 7,
+   "max_ms": 40,
+   "errores": 40,
+   "hilos_activos": 6
+  }
+ ],
+ "codigos": {
+  "200": 80,
+  "201": 40
+ },
+ "recursos": {
+  "cpu_equipo_pct": {
+   "media": 15.5,
+   "max": 26.1
+  },
+  "mem_equipo_pct": {
+   "media": 54.1,
+   "max": 54.3
+  },
+  "mem_equipo_usada_mb": {
+   "media": 16766.8,
+   "max": 16837.0,
+   "inicio": 16748.0,
+   "fin": 16618.0
+  },
+  "cpu_jmeter_pct": {
+   "media": 101.2,
+   "max": 325.5
+  },
+  "mem_jmeter_mb": {
+   "media": 181.2,
+   "max": 257.2
+  },
+  "cpu_api_pct": {
+   "media": 2.5,
+   "max": 8.5
+  },
+  "mem_api_mb": {
+   "media": 22.6,
+   "max": 22.7,
+   "inicio": 22.2,
+   "fin": 22.7
+  }
+ }
+}

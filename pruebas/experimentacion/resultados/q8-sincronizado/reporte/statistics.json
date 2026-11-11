@@ -1,0 +1,34 @@
+{
+  "SeleccionTarifaYCantidad" : {
+    "transaction" : "SeleccionTarifaYCantidad",
+    "sampleCount" : 500,
+    "errorCount" : 83,
+    "errorPct" : 16.6,
+    "meanResTime" : 28442.318000000017,
+    "medianResTime" : 4639.0,
+    "minResTime" : 71.0,
+    "maxResTime" : 126273.0,
+    "pct1ResTime" : 126243.0,
+    "pct2ResTime" : 126253.0,
+    "pct3ResTime" : 126266.0,
+    "throughput" : 3.9596119580281135,
+    "receivedKBytesPerSec" : 2.556540474658483,
+    "sentKBytesPerSec" : 0.7838562289645614
+  },
+  "Total" : {
+    "transaction" : "Total",
+    "sampleCount" : 500,
+    "errorCount" : 83,
+    "errorPct" : 16.6,
+    "meanResTime" : 28442.318000000017,
+    "medianResTime" : 4639.0,
+    "minResTime" : 71.0,
+    "maxResTime" : 126273.0,
+    "pct1ResTime" : 126243.0,
+    "pct2ResTime" : 126253.0,
+    "pct3ResTime" : 126266.0,
+    "throughput" : 3.9596119580281135,
+    "receivedKBytesPerSec" : 2.556540474658483,
+    "sentKBytesPerSec" : 0.7838562289645614
+  }
+}

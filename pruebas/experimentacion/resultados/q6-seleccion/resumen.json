@@ -1,0 +1,135 @@
+{
+ "duracion_s": 59.8,
+ "total": {
+  "muestras": 54373,
+  "media_ms": 1.6,
+  "p90_ms": 2,
+  "p95_ms": 2,
+  "p99_ms": 3,
+  "max_ms": 1232,
+  "error_pct": 0.0,
+  "throughput": 909.0
+ },
+ "por_peticion": {
+  "SeleccionTarifaYCantidad": {
+   "muestras": 54373,
+   "media_ms": 1.6,
+   "p90_ms": 2,
+   "p95_ms": 2,
+   "p99_ms": 3,
+   "max_ms": 1232,
+   "error_pct": 0.0,
+   "throughput": 909.0
+  }
+ },
+ "primeros_5s": {
+  "muestras": 1365,
+  "media_ms": 1.9,
+  "p90_ms": 3,
+  "p95_ms": 3,
+  "p99_ms": 4,
+  "max_ms": 42,
+  "error_pct": 0.0,
+  "throughput": 273.0
+ },
+ "hilos_max": 200,
+ "serie_10s": [
+  {
+   "desde_s": 0,
+   "muestras": 5072,
+   "peticiones_por_s": 507.2,
+   "media_ms": 1.5,
+   "p95_ms": 3,
+   "max_ms": 42,
+   "errores": 0,
+   "hilos_activos": 200
+  },
+  {
+   "desde_s": 10,
+   "muestras": 9898,
+   "peticiones_por_s": 989.8,
+   "media_ms": 1.6,
+   "p95_ms": 2,
+   "max_ms": 1051,
+   "errores": 0,
+   "hilos_activos": 200
+  },
+  {
+   "desde_s": 20,
+   "muestras": 9943,
+   "peticiones_por_s": 994.3,
+   "media_ms": 1.4,
+   "p95_ms": 2,
+   "max_ms": 1049,
+   "errores": 0,
+   "hilos_activos": 200
+  },
+  {
+   "desde_s": 30,
+   "muestras": 9900,
+   "peticiones_por_s": 990.0,
+   "media_ms": 1.3,
+   "p95_ms": 2,
+   "max_ms": 1035,
+   "errores": 0,
+   "hilos_activos": 200
+  },
+  {
+   "desde_s": 40,
+   "muestras": 9927,
+   "peticiones_por_s": 992.7,
+   "media_ms": 2.1,
+   "p95_ms": 2,
+   "max_ms": 1232,
+   "errores": 0,
+   "hilos_activos": 200
+  },
+  {
+   "desde_s": 50,
+   "muestras": 9633,
+   "peticiones_por_s": 963.3,
+   "media_ms": 1.6,
+   "p95_ms": 2,
+   "max_ms": 1063,
+   "errores": 0,
+   "hilos_activos": 200
+  }
+ ],
+ "codigos": {
+  "201": 54373
+ },
+ "recursos": {
+  "cpu_equipo_pct": {
+   "media": 15.6,
+   "max": 36.2
+  },
+  "mem_equipo_pct": {
+   "media": 57.6,
+   "max": 60.2
+  },
+  "mem_equipo_usada_mb": {
+   "media": 17862.4,
+   "max": 18653.0,
+   "inicio": 17179.0,
+   "fin": 17322.0
+  },
+  "cpu_jmeter_pct": {
+   "media": 78.9,
+   "max": 422.4
+  },
+  "mem_jmeter_mb": {
+   "media": 766.1,
+   "max": 1010.2
+  },
+  "cpu_api_pct": {
+   "media": 55.8,
+   "max": 72.6
+  },
+  "mem_api_mb": {
+   "media": 32.9,
+   "max": 43.6,
+   "inicio": 22.2,
+   "fin": 43.6
+  }
+ }
+}

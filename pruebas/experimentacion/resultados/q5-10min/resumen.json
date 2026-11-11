@@ -1,0 +1,696 @@
+{
+ "duracion_s": 599.0,
+ "total": {
+  "muestras": 59469,
+  "media_ms": 1.4,
+  "p90_ms": 2,
+  "p95_ms": 2,
+  "p99_ms": 2,
+  "max_ms": 29,
+  "error_pct": 0.0,
+  "throughput": 99.3
+ },
+ "por_peticion": {
+  "Pago": {
+   "muestras": 19787,
+   "media_ms": 1.4,
+   "p90_ms": 2,
+   "p95_ms": 2,
+   "p99_ms": 3,
+   "max_ms": 5,
+   "error_pct": 0.0,
+   "throughput": 33.1
+  },
+  "SeleccionTarifaYCantidad": {
+   "muestras": 19823,
+   "media_ms": 1.4,
+   "p90_ms": 2,
+   "p95_ms": 2,
+   "p99_ms": 3,
+   "max_ms": 10,
+   "error_pct": 0.0,
+   "throughput": 33.1
+  },
+  "Tarifas": {
+   "muestras": 19859,
+   "media_ms": 1.3,
+   "p90_ms": 2,
+   "p95_ms": 2,
+   "p99_ms": 2,
+   "max_ms": 29,
+   "error_pct": 0.0,
+   "throughput": 33.2
+  }
+ },
+ "primeros_5s": {
+  "muestras": 159,
+  "media_ms": 2.8,
+  "p90_ms": 3,
+  "p95_ms": 4,
+  "p99_ms": 29,
+  "max_ms": 29,
+  "error_pct": 0.0,
+  "throughput": 31.9
+ },
+ "hilos_max": 100,
+ "serie_10s": [
+  {
+   "desde_s": 0,
+   "muestras": 561,
+   "peticiones_por_s": 56.1,
+   "media_ms": 2.3,
+   "p95_ms": 3,
+   "max_ms": 29,
+   "errores": 0,
+   "hilos_activos": 100
+  },
+  {
+   "desde_s": 10,
+   "muestras": 999,
+   "peticiones_por_s": 99.9,
+   "media_ms": 1.7,
+   "p95_ms": 2,
+   "max_ms": 10,
+   "errores": 0,
+   "hilos_activos": 100
+  },
+  {
+   "desde_s": 20,
+   "muestras": 976,
+   "peticiones_por_s": 97.6,
+   "media_ms": 1.7,
+   "p95_ms": 2,
+   "max_ms": 3,
+   "errores": 0,
+   "hilos_activos": 100
+  },
+  {
+   "desde_s": 30,
+   "muestras": 1011,
+   "peticiones_por_s": 101.1,
+   "media_ms": 1.5,
+   "p95_ms": 2,
+   "max_ms": 4,
+   "errores": 0,
+   "hilos_activos": 100
+  },
+  {
+   "desde_s": 40,
+   "muestras": 1009,
+   "peticiones_por_s": 100.9,
+   "media_ms": 1.4,
+   "p95_ms": 2,
+   "max_ms": 3,
+   "errores": 0,
+   "hilos_activos": 100
+  },
+  {
+   "desde_s": 50,
+   "muestras": 995,
+   "peticiones_por_s": 99.5,
+   "media_ms": 1.5,
+   "p95_ms": 2,
+   "max_ms": 4,
+   "errores": 0,
+   "hilos_activos": 100
+  },
+  {
+   "desde_s": 60,
+   "muestras": 1009,
+   "peticiones_por_s": 100.9,
+   "media_ms": 1.5,
+   "p95_ms": 2,
+   "max_ms": 5,
+   "errores": 0,
+   "hilos_activos": 100
+  },
+  {
+   "desde_s": 70,
+   "muestras": 1017,
+   "peticiones_por_s": 101.7,
+   "media_ms": 1.5,
+   "p95_ms": 2,
+   "max_ms": 3,
+   "errores": 0,
+   "hilos_activos": 100
+  },
+  {
+   "desde_s": 80,
+   "muestras": 1004,
+   "peticiones_por_s": 100.4,
+   "media_ms": 1.5,
+   "p95_ms": 2,
+   "max_ms": 3,
+   "errores": 0,
+   "hilos_activos": 100
+  },
+  {
+   "desde_s": 90,
+   "muestras": 1006,
+   "peticiones_por_s": 100.6,
+   "media_ms": 1.5,
+   "p95_ms": 2,
+   "max_ms": 3,
+   "errores": 0,
+   "hilos_activos": 100
+  },
+  {
+   "desde_s": 100,
+   "muestras": 989,
+   "peticiones_por_s": 98.9,
+   "media_ms": 1.4,
+   "p95_ms": 2,
+   "max_ms": 3,
+   "errores": 0,
+   "hilos_activos": 100
+  },
+  {
+   "desde_s": 110,
+   "muestras": 996,
+   "peticiones_por_s": 99.6,
+   "media_ms": 1.4,
+   "p95_ms": 2,
+   "max_ms": 3,
+   "errores": 0,
+   "hilos_activos": 100
+  },
+  {
+   "desde_s": 120,
+   "muestras": 1000,
+   "peticiones_por_s": 100.0,
+   "media_ms": 1.4,
+   "p95_ms": 2,
+   "max_ms": 3,
+   "errores": 0,
+   "hilos_activos": 100
+  },
+  {
+   "desde_s": 130,
+   "muestras": 1004,
+   "peticiones_por_s": 100.4,
+   "media_ms": 1.5,
+   "p95_ms": 2,
+   "max_ms": 3,
+   "errores": 0,
+   "hilos_activos": 100
+  },
+  {
+   "desde_s": 140,
+   "muestras": 993,
+   "peticiones_por_s": 99.3,
+   "media_ms": 1.3,
+   "p95_ms": 2,
+   "max_ms": 5,
+   "errores": 0,
+   "hilos_activos": 100
+  },
+  {
+   "desde_s": 150,
+   "muestras": 1003,
+   "peticiones_por_s": 100.3,
+   "media_ms": 1.3,
+   "p95_ms": 2,
+   "max_ms": 3,
+   "errores": 0,
+   "hilos_activos": 100
+  },
+  {
+   "desde_s": 160,
+   "muestras": 1008,
+   "peticiones_por_s": 100.8,
+   "media_ms": 1.3,
+   "p95_ms": 2,
+   "max_ms": 4,
+   "errores": 0,
+   "hilos_activos": 100
+  },
+  {
+   "desde_s": 170,
+   "muestras": 994,
+   "peticiones_por_s": 99.4,
+   "media_ms": 1.3,
+   "p95_ms": 2,
+   "max_ms": 3,
+   "errores": 0,
+   "hilos_activos": 100
+  },
+  {
+   "desde_s": 180,
+   "muestras": 985,
+   "peticiones_por_s": 98.5,
+   "media_ms": 1.3,
+   "p95_ms": 2,
+   "max_ms": 3,
+   "errores": 0,
+   "hilos_activos": 100
+  },
+  {
+   "desde_s": 190,
+   "muestras": 1006,
+   "peticiones_por_s": 100.6,
+   "media_ms": 1.3,
+   "p95_ms": 2,
+   "max_ms": 4,
+   "errores": 0,
+   "hilos_activos": 100
+  },
+  {
+   "desde_s": 200,
+   "muestras": 1015,
+   "peticiones_por_s": 101.5,
+   "media_ms": 1.3,
+   "p95_ms": 2,
+   "max_ms": 3,
+   "errores": 0,
+   "hilos_activos": 100
+  },
+  {
+   "desde_s": 210,
+   "muestras": 999,
+   "peticiones_por_s": 99.9,
+   "media_ms": 1.3,
+   "p95_ms": 2,
+   "max_ms": 2,
+   "errores": 0,
+   "hilos_activos": 100
+  },
+  {
+   "desde_s": 220,
+   "muestras": 995,
+   "peticiones_por_s": 99.5,
+   "media_ms": 1.3,
+   "p95_ms": 2,
+   "max_ms": 3,
+   "errores": 0,
+   "hilos_activos": 100
+  },
+  {
+   "desde_s": 230,
+   "muestras": 990,
+   "peticiones_por_s": 99.0,
+   "media_ms": 1.4,
+   "p95_ms": 2,
+   "max_ms": 3,
+   "errores": 0,
+   "hilos_activos": 100
+  },
+  {
+   "desde_s": 240,
+   "muestras": 1003,
+   "peticiones_por_s": 100.3,
+   "media_ms": 1.4,
+   "p95_ms": 2,
+   "max_ms": 4,
+   "errores": 0,
+   "hilos_activos": 100
+  },
+  {
+   "desde_s": 250,
+   "muestras": 1003,
+   "peticiones_por_s": 100.3,
+   "media_ms": 1.3,
+   "p95_ms": 2,
+   "max_ms": 4,
+   "errores": 0,
+   "hilos_activos": 100
+  },
+  {
+   "desde_s": 260,
+   "muestras": 1008,
+   "peticiones_por_s": 100.8,
+   "media_ms": 1.3,
+   "p95_ms": 2,
+   "max_ms": 5,
+   "errores": 0,
+   "hilos_activos": 100
+  },
+  {
+   "desde_s": 270,
+   "muestras": 1010,
+   "peticiones_por_s": 101.0,
+   "media_ms": 1.3,
+   "p95_ms": 2,
+   "max_ms": 3,
+   "errores": 0,
+   "hilos_activos": 100
+  },
+  {
+   "desde_s": 280,
+   "muestras": 999,
+   "peticiones_por_s": 99.9,
+   "media_ms": 1.4,
+   "p95_ms": 2,
+   "max_ms": 4,
+   "errores": 0,
+   "hilos_activos": 100
+  },
+  {
+   "desde_s": 290,
+   "muestras": 1001,
+   "peticiones_por_s": 100.1,
+   "media_ms": 1.4,
+   "p95_ms": 2,
+   "max_ms": 3,
+   "errores": 0,
+   "hilos_activos": 100
+  },
+  {
+   "desde_s": 300,
+   "muestras": 994,
+   "peticiones_por_s": 99.4,
+   "media_ms": 1.4,
+   "p95_ms": 2,
+   "max_ms": 3,
+   "errores": 0,
+   "hilos_activos": 100
+  },
+  {
+   "desde_s": 310,
+   "muestras": 995,
+   "peticiones_por_s": 99.5,
+   "media_ms": 1.3,
+   "p95_ms": 2,
+   "max_ms": 3,
+   "errores": 0,
+   "hilos_activos": 100
+  },
+  {
+   "desde_s": 320,
+   "muestras": 997,
+   "peticiones_por_s": 99.7,
+   "media_ms": 1.4,
+   "p95_ms": 2,
+   "max_ms": 3,
+   "errores": 0,
+   "hilos_activos": 100
+  },
+  {
+   "desde_s": 330,
+   "muestras": 980,
+   "peticiones_por_s": 98.0,
+   "media_ms": 1.4,
+   "p95_ms": 2,
+   "max_ms": 3,
+   "errores": 0,
+   "hilos_activos": 100
+  },
+  {
+   "desde_s": 340,
+   "muestras": 1005,
+   "peticiones_por_s": 100.5,
+   "media_ms": 1.4,
+   "p95_ms": 2,
+   "max_ms": 3,
+   "errores": 0,
+   "hilos_activos": 100
+  },
+  {
+   "desde_s": 350,
+   "muestras": 994,
+   "peticiones_por_s": 99.4,
+   "media_ms": 1.3,
+   "p95_ms": 2,
+   "max_ms": 3,
+   "errores": 0,
+   "hilos_activos": 100
+  },
+  {
+   "desde_s": 360,
+   "muestras": 1006,
+   "peticiones_por_s": 100.6,
+   "media_ms": 1.4,
+   "p95_ms": 2,
+   "max_ms": 3,
+   "errores": 0,
+   "hilos_activos": 100
+  },
+  {
+   "desde_s": 370,
+   "muestras": 992,
+   "peticiones_por_s": 99.2,
+   "media_ms": 1.4,
+   "p95_ms": 2,
+   "max_ms": 4,
+   "errores": 0,
+   "hilos_activos": 100
+  },
+  {
+   "desde_s": 380,
+   "muestras": 1014,
+   "peticiones_por_s": 101.4,
+   "media_ms": 1.4,
+   "p95_ms": 2,
+   "max_ms": 3,
+   "errores": 0,
+   "hilos_activos": 100
+  },
+  {
+   "desde_s": 390,
+   "muestras": 1001,
+   "peticiones_por_s": 100.1,
+   "media_ms": 1.4,
+   "p95_ms": 2,
+   "max_ms": 3,
+   "errores": 0,
+   "hilos_activos": 100
+  },
+  {
+   "desde_s": 400,
+   "muestras": 990,
+   "peticiones_por_s": 99.0,
+   "media_ms": 1.4,
+   "p95_ms": 2,
+   "max_ms": 3,
+   "errores": 0,
+   "hilos_activos": 100
+  },
+  {
+   "desde_s": 410,
+   "muestras": 1004,
+   "peticiones_por_s": 100.4,
+   "media_ms": 1.4,
+   "p95_ms": 2,
+   "max_ms": 3,
+   "errores": 0,
+   "hilos_activos": 100
+  },
+  {
+   "desde_s": 420,
+   "muestras": 983,
+   "peticiones_por_s": 98.3,
+   "media_ms": 1.4,
+   "p95_ms": 2,
+   "max_ms": 3,
+   "errores": 0,
+   "hilos_activos": 100
+  },
+  {
+   "desde_s": 430,
+   "muestras": 997,
+   "peticiones_por_s": 99.7,
+   "media_ms": 1.4,
+   "p95_ms": 2,
+   "max_ms": 3,
+   "errores": 0,
+   "hilos_activos": 100
+  },
+  {
+   "desde_s": 440,
+   "muestras": 1002,
+   "peticiones_por_s": 100.2,
+   "media_ms": 1.4,
+   "p95_ms": 2,
+   "max_ms": 3,
+   "errores": 0,
+   "hilos_activos": 100
+  },
+  {
+   "desde_s": 450,
+   "muestras": 990,
+   "peticiones_por_s": 99.0,
+   "media_ms": 1.4,
+   "p95_ms": 2,
+   "max_ms": 4,
+   "errores": 0,
+   "hilos_activos": 100
+  },
+  {
+   "desde_s": 460,
+   "muestras": 1001,
+   "peticiones_por_s": 100.1,
+   "media_ms": 1.4,
+   "p95_ms": 2,
+   "max_ms": 3,
+   "errores": 0,
+   "hilos_activos": 100
+  },
+  {
+   "desde_s": 470,
+   "muestras": 1000,
+   "peticiones_por_s": 100.0,
+   "media_ms": 1.4,
+   "p95_ms": 2,
+   "max_ms": 5,
+   "errores": 0,
+   "hilos_activos": 100
+  },
+  {
+   "desde_s": 480,
+   "muestras": 1012,
+   "peticiones_por_s": 101.2,
+   "media_ms": 1.3,
+   "p95_ms": 2,
+   "max_ms": 3,
+   "errores": 0,
+   "hilos_activos": 100
+  },
+  {
+   "desde_s": 490,
+   "muestras": 999,
+   "peticiones_por_s": 99.9,
+   "media_ms": 1.4,
+   "p95_ms": 2,
+   "max_ms": 3,
+   "errores": 0,
+   "hilos_activos": 100
+  },
+  {
+   "desde_s": 500,
+   "muestras": 998,
+   "peticiones_por_s": 99.8,
+   "media_ms": 1.4,
+   "p95_ms": 2,
+   "max_ms": 3,
+   "errores": 0,
+   "hilos_activos": 100
+  },
+  {
+   "desde_s": 510,
+   "muestras": 991,
+   "peticiones_por_s": 99.1,
+   "media_ms": 1.4,
+   "p95_ms": 2,
+   "max_ms": 4,
+   "errores": 0,
+   "hilos_activos": 100
+  },
+  {
+   "desde_s": 520,
+   "muestras": 1000,
+   "peticiones_por_s": 100.0,
+   "media_ms": 1.4,
+   "p95_ms": 2,
+   "max_ms": 3,
+   "errores": 0,
+   "hilos_activos": 100
+  },
+  {
+   "desde_s": 530,
+   "muestras": 999,
+   "peticiones_por_s": 99.9,
+   "media_ms": 1.4,
+   "p95_ms": 2,
+   "max_ms": 3,
+   "errores": 0,
+   "hilos_activos": 100
+  },
+  {
+   "desde_s": 540,
+   "muestras": 1000,
+   "peticiones_por_s": 100.0,
+   "media_ms": 1.4,
+   "p95_ms": 2,
+   "max_ms": 4,
+   "errores": 0,
+   "hilos_activos": 100
+  },
+  {
+   "desde_s": 550,
+   "muestras": 1014,
+   "peticiones_por_s": 101.4,
+   "media_ms": 1.4,
+   "p95_ms": 2,
+   "max_ms": 3,
+   "errores": 0,
+   "hilos_activos": 100
+  },
+  {
+   "desde_s": 560,
+   "muestras": 1015,
+   "peticiones_por_s": 101.5,
+   "media_ms": 1.4,
+   "p95_ms": 2,
+   "max_ms": 3,
+   "errores": 0,
+   "hilos_activos": 100
+  },
+  {
+   "desde_s": 570,
+   "muestras": 986,
+   "peticiones_por_s": 98.6,
+   "media_ms": 1.4,
+   "p95_ms": 2,
+   "max_ms": 5,
+   "errores": 0,
+   "hilos_activos": 100
+  },
+  {
+   "desde_s": 580,
+   "muestras": 1018,
+   "peticiones_por_s": 101.8,
+   "media_ms": 1.4,
+   "p95_ms": 2,
+   "max_ms": 5,
+   "errores": 0,
+   "hilos_activos": 100
+  },
+  {
+   "desde_s": 590,
+   "muestras": 904,
+   "peticiones_por_s": 90.4,
+   "media_ms": 1.4,
+   "p95_ms": 2,
+   "max_ms": 3,
+   "errores": 0,
+   "hilos_activos": 100
+  }
+ ],
+ "codigos": {
+  "200": 39646,
+  "201": 19823
+ },
+ "recursos": {
+  "cpu_equipo_pct": {
+   "media": 8.7,
+   "max": 33.5
+  },
+  "mem_equipo_pct": {
+   "media": 58.9,
+   "max": 61.7
+  },
+  "mem_equipo_usada_mb": {
+   "media": 18258.5,
+   "max": 19114.0,
+   "inicio": 17594.0,
+   "fin": 17062.0
+  },
+  "cpu_jmeter_pct": {
+   "media": 12.2,
+   "max": 284.3
+  },
+  "mem_jmeter_mb": {
+   "media": 787.7,
+   "max": 958.0
+  },
+  "cpu_api_pct": {
+   "media": 11.5,
+   "max": 14.4
+  },
+  "mem_api_mb": {
+   "media": 22.7,
+   "max": 22.7,
+   "inicio": 22.3,
+   "fin": 22.7
+  }
+ }
+}
