@@ -3,7 +3,7 @@
 
 Requiere:  pip install matplotlib python-docx   y Google Chrome (para las capturas de los reportes).
 Uso:       python3 scripts/generar_informe.py
-Salida:    pruebas/experimentacion/Informe_Experimentacion.docx  (+ pruebas/experimentacion/informe_img/*.png)
+Salida:    pruebas/experimentacion/entrega/Informe_Experimentacion.docx  (+ pruebas/experimentacion/informe_img/*.png)
 """
 import csv
 import json
@@ -118,7 +118,7 @@ def fig_q4():
     ax.set(xlabel="segundos", ylabel="peticiones/s", ylim=(0, 2900))
     for k, (tm, u) in enumerate(((0, 50), (30, 100), (60, 250), (90, 500))):
         ax.axvline(tm, color=GRIS, ls="--", lw=.8); ax.text(tm + .5, ax.get_ylim()[1] * .97, f"{u} usuarios", va="top", fontsize=8)
-    ax2 = ax.twinx(); ax2.grid(False)
+    ax2 = ax.twinx(); ax2.grid(False); ax2.set_ylim(0, 1400)
     ax2.plot([a + 4 for a in x], [s["p95_ms"] for s in r], color=ROJO, marker="o", label="p95 (ms)")
     ax2.set_ylabel("p95 (ms)", color=ROJO)
     return guardar(fig, "q4.png")
@@ -205,6 +205,19 @@ def fig_q10():
             ax[1][col].set_ylim(0, 4)
     ax[0][0].legend(fontsize=7, loc="upper left"); ax[1][0].legend(fontsize=7)
     return guardar(fig, "q10.png")
+
+
+def fig_q10_resumen():
+    """Versión ancha de la pregunta 10 para la presentación: CPU de la API y tiempo medio, con pausas normales y cortas."""
+    fig, ax = plt.subplots(1, 2, figsize=(9, 3.2))
+    for i, c, n in (("q10-500", AZUL, "pausas normales"), ("q10-500-presion", ROJO, "pausas cortas")):
+        r = recursos(i)
+        ax[0].plot([int(a["t_seg"]) for a in r], [float(a["cpu_api_pct"]) / 100 for a in r], color=c, label=n)
+        w = por_ventana(jtl(i), 5)
+        ax[1].plot([a for a, _ in w], [sum(g["ms"] for g in f) / len(f) for _, f in w], color=c, label=n)
+    ax[0].set(title="CPU de la API (núcleos)", xlabel="segundos", ylim=(0, 1.6)); ax[0].legend()
+    ax[1].set(title="Tiempo de respuesta medio (ms, escala log)", xlabel="segundos"); ax[1].set_yscale("log")
+    return guardar(fig, "q10_resumen.png")
 
 
 def fig_q10_mem():
@@ -584,7 +597,7 @@ def construir():
                [["CPU del equipo (% de 16 núcleos)", ra["cpu_equipo_pct"]["max"], rb["cpu_equipo_pct"]["max"]], ["CPU de JMeter (núcleos)", round(ra["cpu_jmeter_pct"]["max"] / 100, 1), round(rb["cpu_jmeter_pct"]["max"] / 100, 1)],
                 ["CPU de la API (núcleos)", round(ra["cpu_api_pct"]["max"] / 100, 2), round(rb["cpu_api_pct"]["max"] / 100, 2)], ["Memoria del equipo (%)", ra["mem_equipo_pct"]["max"], rb["mem_equipo_pct"]["max"]],
                 ["Memoria de JMeter (MB)", ra["mem_jmeter_mb"]["max"], rb["mem_jmeter_mb"]["max"]], ["Memoria de la API (MB)", ra["mem_api_mb"]["max"], rb["mem_api_mb"]["max"]]], [7, 4, 4])],
-             [(fig_q10(), "Arriba: CPU. Abajo: tiempo de respuesta. A la izquierda, pausas normales; a la derecha, pausas cortas."), (fig_q10_mem(), "Memoria que usa JMeter durante la prueba.")],
+             [(fig_q10_resumen(), "CPU de la API (izquierda) y tiempo de respuesta medio (derecha) con 500 usuarios."), (fig_q10(), "Arriba: CPU. Abajo: tiempo de respuesta. A la izquierda, pausas normales; a la derecha, pausas cortas."), (fig_q10_mem(), "Memoria que usa JMeter durante la prueba.")],
              [f"Con las pausas normales no se saturó nada. El equipo usó como máximo un {ra['cpu_equipo_pct']['max']:.0f} % de CPU, JMeter hasta {ra['cpu_jmeter_pct']['max'] / 100:.1f} núcleos y la API apenas {ra['cpu_api_pct']['max'] / 100:.1f}. La memoria de la API se quedó en {ra['mem_api_mb']['max']} MB y la de JMeter en cerca de 1 GB. "
               f"El tiempo de respuesta se mantuvo en {a['total']['media_ms']} ms de media.",
               f"Con pausas cortas, que sí empujan la carga a unas {sb[-1]['peticiones_por_s']:.0f} peticiones por segundo, la API llega a su límite: pasa de {ra['cpu_api_pct']['max'] / 100:.1f} a {rb['cpu_api_pct']['max'] / 100:.1f} núcleos, es decir, un poco más de un núcleo completo. "
@@ -606,7 +619,7 @@ def construir():
         doc.add_paragraph(x, style="List Bullet")
     doc.add_heading("Cómo reproducir", level=2)
     parrafo(doc, "python3 scripts/correr_experimentos.py (todos los escenarios) o con el nombre de uno, por ejemplo q4-escalones. Los reportes HTML quedan en pruebas/experimentacion/resultados/<escenario>/reporte/index.html.")
-    ruta = os.path.join(EXP, "Informe_Experimentacion.docx")
+    ruta = os.path.join(EXP, "entrega", "Informe_Experimentacion.docx")
     doc.save(ruta)
     print("guardado", os.path.relpath(ruta, RAIZ))
 

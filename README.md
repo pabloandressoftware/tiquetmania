@@ -15,7 +15,7 @@ tiquetmania/
 │       ├── Experimentacion.jmx
 │       ├── datos.csv
 │       ├── resultados/                    reportes de cada escenario
-│       └── Informe_Experimentacion.docx   entrega del ejercicio 2
+│       └── entrega/                       Informe en Word y PDF, presentación en PowerPoint y PDF (entrega del ejercicio 2)
 ├── scripts/                               generar_planes.py, correr_experimentos.py, generar_informe.py
 ├── .github/workflows/pipeline.yml         el pipeline (GitHub solo lo lee en la raíz)
 └── README.md
@@ -101,7 +101,7 @@ El **criterio de aceptación** del plan quedó pendiente en la guía ("se define
 
 `pruebas/experimentacion/Experimentacion.jmx` es un solo plan que se configura con propiedades (`-Jusuarios=500 -Jrampup=10 ...`).
 `scripts/correr_experimentos.py` corre los 18 escenarios de las 10 preguntas, mide CPU y memoria cada segundo y guarda un reporte HTML por escenario en `pruebas/experimentacion/resultados/`.
-Las respuestas, gráficas y capturas están en `pruebas/experimentacion/Informe_Experimentacion.docx`.
+Las respuestas, gráficas y capturas están en `pruebas/experimentacion/entrega/`: `Informe_Experimentacion.docx` (y `.pdf`) y `Presentacion_Experimentacion.pptx` (y `.pdf`).
 
 ```bash
 export JMETER_HOME=/ruta/a/apache-jmeter-5.6.3
