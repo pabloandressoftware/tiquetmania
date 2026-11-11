@@ -1,0 +1,65 @@
+name: Pruebas de rendimiento
+
+# Cuándo corre: con cada push a main, o a mano desde la pestaña Actions
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+jobs:
+  rendimiento:
+    runs-on: ubuntu-latest        # máquina virtual nueva y vacía en cada ejecución
+    timeout-minutes: 20           # el plan dura ~5 min; esto evita que quede colgado
+    steps:
+      - name: Descargar el repositorio
+        uses: actions/checkout@v4
+
+      - name: Instalar Java 17 (lo necesita JMeter 5.6.3)
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: "17"
+
+      - name: Instalar JMeter 5.6.3
+        run: |
+          curl -fsSL -o jmeter.tgz https://archive.apache.org/dist/jmeter/binaries/apache-jmeter-5.6.3.tgz
+          curl -fsSL -o jmeter.tgz.sha512 https://archive.apache.org/dist/jmeter/binaries/apache-jmeter-5.6.3.tgz.sha512
+          echo "$(cut -d' ' -f1 jmeter.tgz.sha512)  jmeter.tgz" | sha512sum -c -
+          tar -xzf jmeter.tgz -C "$HOME"
+          echo "$HOME/apache-jmeter-5.6.3/bin" >> "$GITHUB_PATH"
+
+      - name: Levantar la API en el puerto 8080 y esperar a que responda
+        run: |
+          nohup python3 api/ticketmania_simple.py > api.log 2>&1 &
+          for i in $(seq 1 30); do
+            if curl -fsS http://127.0.0.1:8080/api/salud; then echo; echo "API lista"; exit 0; fi
+            sleep 1
+          done
+          echo "La API no respondió en 30 s"; cat api.log; exit 1
+
+      - name: Ejecutar JMeter sin interfaz (200 usuarios en 5 minutos)
+        working-directory: pruebas/jmeter      # aquí está datos.csv, junto al .jmx
+        run: jmeter -n -t Ticketmania.jmx -l resultados.jtl -e -o reporte
+
+      - name: Decidir - falla el job si alguna petición falló
+        # JMeter termina "bien" aunque una petición responda mal; por eso se revisa el .jtl
+        working-directory: pruebas/jmeter
+        run: |
+          python3 - <<'PY'
+          import csv, sys
+          filas = list(csv.DictReader(open("resultados.jtl", encoding="utf-8")))
+          fallidas = [f for f in filas if f["success"] != "true"]
+          print(f"Peticiones: {len(filas)} | fallidas: {len(fallidas)}")
+          for f in fallidas[:10]:
+              print("  FALLÓ:", f["label"], f["responseCode"], f["responseMessage"])
+          sys.exit(1 if fallidas or not filas else 0)
+          PY
+
+      - name: Subir el reporte (siempre, aunque la prueba haya fallado)
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: reporte-rendimiento
+          path: |
+            pruebas/jmeter/reporte
+            pruebas/jmeter/resultados.jtl
