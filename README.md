@@ -39,6 +39,7 @@ Para ver o editar el plan: `jmeter -t pruebas/jmeter/Ticketmania.jmx`.
 
 | Elemento | Configuración |
 |---|---|
+| Gestor de Cookies HTTP | a nivel del plan (la API no usa cookies, pero la guía lo incluye en el árbol) |
 | Configuración del CSV Data Set | `datos.csv` (ruta relativa) · variables `tarifa,cantidad` · primera línea como nombres · reciclar en EOF |
 | Valores por defecto de la petición HTTP | `127.0.0.1` · puerto `8080` |
 | Grupo de Hilos `Seleccion de tarifa y Pago` | **200 hilos · subida 300 s · bucle 1** (200 usuarios entran en 5 minutos) |
@@ -95,7 +96,15 @@ Corrida en GitHub Actions: **verde** (https://github.com/pabloandressoftware/tiq
 | Comparar ejecuciones | válido si cambio una sola variable | varía entre ejecuciones |
 
 La nube sirve para comprobar que la prueba corre de principio a fin, no para medir la capacidad de la API.
-El **criterio de aceptación** del plan quedó pendiente en la guía ("se define en clase"). Por ahora el pipeline exige 0 peticiones fallidas.
+### Criterio de aceptación
+
+La guía v3 dice que los criterios no son obligatorios, pero que si se proponen deben tener métrica, valor de referencia y carga. El del pipeline es:
+
+| Métrica | Valor esperado | Carga |
+|---|---|---|
+| % Error | 0 % (ninguna petición fallida) | 200 usuarios, subida de 300 s, 1 vuelta (600 peticiones) |
+
+El paso "Decidir" del pipeline lo aplica: si hay una sola petición fallida, el job queda en rojo.
 
 ## 4. Ejercicio 2: experimentación "¿Qué pasaría si...?"
 
