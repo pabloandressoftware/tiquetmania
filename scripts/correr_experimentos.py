@@ -14,6 +14,7 @@ Uso:
     python3 scripts/correr_experimentos.py            # todos
     python3 scripts/correr_experimentos.py q1-20 q1-500
     python3 scripts/correr_experimentos.py --lista    # ver los escenarios
+Con CARPETA_RESULTADOS=otra_carpeta se guarda en otro sitio (se usó para la segunda repetición).
 Si una carpeta de resultados ya existe, el escenario se salta (bórrala tú para repetirlo).
 """
 import csv
@@ -161,7 +162,7 @@ def resumir(carpeta):
 
 
 def correr(id_, props):
-    carpeta = os.path.join(EXP, "resultados", id_)
+    carpeta = os.path.join(EXP, os.environ.get("CARPETA_RESULTADOS", "resultados"), id_)
     if os.path.exists(carpeta):
         print(f"[{id_}] ya existe resultados/{id_}, se salta")
         return

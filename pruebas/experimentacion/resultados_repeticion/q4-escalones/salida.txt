@@ -1,0 +1,21 @@
+WARN StatusConsoleListener The use of package scanning to locate plugins is deprecated and will be removed in a future release
+WARN StatusConsoleListener The use of package scanning to locate plugins is deprecated and will be removed in a future release
+WARN StatusConsoleListener The use of package scanning to locate plugins is deprecated and will be removed in a future release
+WARN StatusConsoleListener The use of package scanning to locate plugins is deprecated and will be removed in a future release
+Creating summariser <summary>
+Created the tree successfully using /home/andrew/Documents/ia/tiquetmania/pruebas/experimentacion/Experimentacion.jmx
+Starting standalone test @ 2026 Nov 12 00:28:58 COT (1794461338694)
+Waiting for possible Shutdown/StopTestNow/HeapDump/ThreadDump message on port 4445
+summary +     60 in 00:00:01 =   49.5/s Avg:     4 Min:     1 Max:    42 Err:     0 (0.00%) Active: 12 Started: 12 Finished: 0
+summary +  14174 in 00:00:30 =  472.9/s Avg:     1 Min:     0 Max:     7 Err:     0 (0.00%) Active: 62 Started: 62 Finished: 0
+summary =  14234 in 00:00:31 =  456.4/s Avg:     1 Min:     0 Max:    42 Err:     0 (0.00%)
+summary +  29160 in 00:00:30 =  972.0/s Avg:     0 Min:     0 Max:  1012 Err:     0 (0.00%) Active: 133 Started: 133 Finished: 0
+summary =  43394 in 00:01:01 =  709.2/s Avg:     1 Min:     0 Max:  1012 Err:     0 (0.00%)
+summary +  61586 in 00:00:30 = 2052.9/s Avg:    16 Min:     0 Max:  2285 Err:     0 (0.00%) Active: 298 Started: 298 Finished: 0
+summary = 104980 in 00:01:31 = 1151.3/s Avg:    10 Min:     0 Max:  2285 Err:     0 (0.00%)
+summary +  72972 in 00:00:30 = 2432.0/s Avg:    95 Min:     0 Max: 16334 Err:     0 (0.00%) Active: 54 Started: 500 Finished: 446
+summary = 177952 in 00:02:01 = 1468.4/s Avg:    45 Min:     0 Max: 16334 Err:     0 (0.00%)
+summary +     53 in 00:00:04 =   13.4/s Avg:  2604 Min:  1012 Max: 32910 Err:     0 (0.00%) Active: 0 Started: 500 Finished: 500
+summary = 178005 in 00:02:05 = 1422.4/s Avg:    45 Min:     0 Max: 32910 Err:     0 (0.00%)
+Tidying up ...    @ 2026 Nov 12 00:31:03 COT (1794461463959)
+... end of run

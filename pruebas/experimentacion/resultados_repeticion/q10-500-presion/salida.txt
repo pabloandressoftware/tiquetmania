@@ -1,0 +1,25 @@
+WARN StatusConsoleListener The use of package scanning to locate plugins is deprecated and will be removed in a future release
+WARN StatusConsoleListener The use of package scanning to locate plugins is deprecated and will be removed in a future release
+WARN StatusConsoleListener The use of package scanning to locate plugins is deprecated and will be removed in a future release
+WARN StatusConsoleListener The use of package scanning to locate plugins is deprecated and will be removed in a future release
+Creating summariser <summary>
+Created the tree successfully using /home/andrew/Documents/ia/tiquetmania/pruebas/experimentacion/Experimentacion.jmx
+Starting standalone test @ 2026 Nov 12 00:43:31 COT (1794462211799)
+Waiting for possible Shutdown/StopTestNow/HeapDump/ThreadDump message on port 4445
+summary +      1 in 00:00:00 =    2.6/s Avg:    33 Min:    33 Max:    33 Err:     0 (0.00%) Active: 6 Started: 6 Finished: 0
+summary +  49185 in 00:00:28 = 1776.1/s Avg:    30 Min:     0 Max:  4578 Err:     0 (0.00%) Active: 468 Started: 468 Finished: 0
+summary =  49186 in 00:00:28 = 1751.5/s Avg:    30 Min:     0 Max:  4578 Err:     0 (0.00%)
+summary +  76712 in 00:00:30 = 2557.1/s Avg:    92 Min:     0 Max: 20475 Err:     0 (0.00%) Active: 500 Started: 500 Finished: 0
+summary = 125898 in 00:00:58 = 2167.6/s Avg:    68 Min:     0 Max: 20475 Err:     0 (0.00%)
+summary +  75212 in 00:00:30 = 2507.1/s Avg:    94 Min:     0 Max: 36517 Err:     0 (0.00%) Active: 500 Started: 500 Finished: 0
+summary = 201110 in 00:01:28 = 2283.2/s Avg:    77 Min:     0 Max: 36517 Err:     0 (0.00%)
+summary +  76065 in 00:00:30 = 2535.5/s Avg:    92 Min:     0 Max: 30028 Err:     0 (0.00%) Active: 500 Started: 500 Finished: 0
+summary = 277175 in 00:01:58 = 2347.3/s Avg:    82 Min:     0 Max: 36517 Err:     0 (0.00%)
+summary +  75851 in 00:00:30 = 2528.4/s Avg:    96 Min:     0 Max: 68568 Err:     0 (0.00%) Active: 500 Started: 500 Finished: 0
+summary = 353026 in 00:02:28 = 2384.0/s Avg:    85 Min:     0 Max: 68568 Err:     0 (0.00%)
+summary +  75536 in 00:00:30 = 2517.9/s Avg:    94 Min:     0 Max: 35919 Err:     0 (0.00%) Active: 500 Started: 500 Finished: 0
+summary = 428562 in 00:02:58 = 2406.5/s Avg:    86 Min:     0 Max: 68568 Err:     0 (0.00%)
+summary +   5587 in 00:00:11 =  488.8/s Avg:   381 Min:     0 Max: 133906 Err:     7 (0.13%) Active: 0 Started: 500 Finished: 500
+summary = 434149 in 00:03:10 = 2290.8/s Avg:    90 Min:     0 Max: 133906 Err:     7 (0.00%)
+Tidying up ...    @ 2026 Nov 12 00:46:41 COT (1794462401432)
+... end of run

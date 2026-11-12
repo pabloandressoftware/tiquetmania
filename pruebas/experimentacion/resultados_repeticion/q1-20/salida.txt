@@ -1,0 +1,15 @@
+WARN StatusConsoleListener The use of package scanning to locate plugins is deprecated and will be removed in a future release
+WARN StatusConsoleListener The use of package scanning to locate plugins is deprecated and will be removed in a future release
+WARN StatusConsoleListener The use of package scanning to locate plugins is deprecated and will be removed in a future release
+WARN StatusConsoleListener The use of package scanning to locate plugins is deprecated and will be removed in a future release
+Creating summariser <summary>
+Created the tree successfully using /home/andrew/Documents/ia/tiquetmania/pruebas/experimentacion/Experimentacion.jmx
+Starting standalone test @ 2026 Nov 12 00:21:09 COT (1794460869254)
+Waiting for possible Shutdown/StopTestNow/HeapDump/ThreadDump message on port 4445
+summary +    295 in 00:00:20 =   14.4/s Avg:     2 Min:     1 Max:    37 Err:     0 (0.00%) Active: 20 Started: 20 Finished: 0
+summary +    596 in 00:00:30 =   19.8/s Avg:     2 Min:     1 Max:     7 Err:     0 (0.00%) Active: 20 Started: 20 Finished: 0
+summary =    891 in 00:00:50 =   17.6/s Avg:     2 Min:     1 Max:    37 Err:     0 (0.00%)
+summary +    196 in 00:00:10 =   20.5/s Avg:     1 Min:     1 Max:     3 Err:     0 (0.00%) Active: 0 Started: 20 Finished: 20
+summary =   1087 in 00:01:00 =   18.1/s Avg:     2 Min:     1 Max:    37 Err:     0 (0.00%)
+Tidying up ...    @ 2026 Nov 12 00:22:09 COT (1794460929606)
+... end of run

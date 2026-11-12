@@ -1,0 +1,342 @@
+[
+ {
+  "id": "q1-20",
+  "coincide": true,
+  "corrida1": {
+   "muestras": 1096,
+   "media_ms": 2.2,
+   "p95_ms": 3,
+   "max_ms": 26,
+   "error_pct": 0.0,
+   "throughput": 18.6
+  },
+  "corrida2": {
+   "muestras": 1087,
+   "media_ms": 2.2,
+   "p95_ms": 3,
+   "max_ms": 37,
+   "error_pct": 0.0,
+   "throughput": 19.2
+  }
+ },
+ {
+  "id": "q1-500",
+  "coincide": true,
+  "corrida1": {
+   "muestras": 27012,
+   "media_ms": 1.5,
+   "p95_ms": 2,
+   "max_ms": 1067,
+   "error_pct": 0.0,
+   "throughput": 454.3
+  },
+  "corrida2": {
+   "muestras": 27370,
+   "media_ms": 1.3,
+   "p95_ms": 2,
+   "max_ms": 34,
+   "error_pct": 0.0,
+   "throughput": 460.7
+  }
+ },
+ {
+  "id": "q10-500",
+  "coincide": true,
+  "corrida1": {
+   "muestras": 81291,
+   "media_ms": 1.2,
+   "p95_ms": 2,
+   "max_ms": 1063,
+   "error_pct": 0.0,
+   "throughput": 453.3
+  },
+  "corrida2": {
+   "muestras": 82277,
+   "media_ms": 1.3,
+   "p95_ms": 2,
+   "max_ms": 1051,
+   "error_pct": 0.0,
+   "throughput": 459.0
+  }
+ },
+ {
+  "id": "q10-500-presion",
+  "coincide": true,
+  "corrida1": {
+   "muestras": 407796,
+   "media_ms": 103.7,
+   "p95_ms": 1022,
+   "max_ms": 135385,
+   "error_pct": 0.0,
+   "throughput": 2005.8
+  },
+  "corrida2": {
+   "muestras": 434149,
+   "media_ms": 90.7,
+   "p95_ms": 1011,
+   "max_ms": 133906,
+   "error_pct": 0.0,
+   "throughput": 2295.2
+  }
+ },
+ {
+  "id": "q2-rampup-1s",
+  "coincide": true,
+  "corrida1": {
+   "muestras": 17775,
+   "media_ms": 1.5,
+   "p95_ms": 2,
+   "max_ms": 1042,
+   "error_pct": 0.0,
+   "throughput": 198.8
+  },
+  "corrida2": {
+   "muestras": 17707,
+   "media_ms": 1.5,
+   "p95_ms": 2,
+   "max_ms": 36,
+   "error_pct": 0.0,
+   "throughput": 198.2
+  }
+ },
+ {
+  "id": "q2-rampup-60s",
+  "coincide": true,
+  "corrida1": {
+   "muestras": 11913,
+   "media_ms": 1.5,
+   "p95_ms": 2,
+   "max_ms": 35,
+   "error_pct": 0.0,
+   "throughput": 134.4
+  },
+  "corrida2": {
+   "muestras": 11933,
+   "media_ms": 1.6,
+   "p95_ms": 2,
+   "max_ms": 31,
+   "error_pct": 0.0,
+   "throughput": 134.4
+  }
+ },
+ {
+  "id": "q3-con-timer",
+  "coincide": true,
+  "corrida1": {
+   "muestras": 5417,
+   "media_ms": 1.7,
+   "p95_ms": 2,
+   "max_ms": 23,
+   "error_pct": 0.0,
+   "throughput": 91.5
+  },
+  "corrida2": {
+   "muestras": 5457,
+   "media_ms": 1.7,
+   "p95_ms": 2,
+   "max_ms": 29,
+   "error_pct": 0.0,
+   "throughput": 92.1
+  }
+ },
+ {
+  "id": "q3-sin-timer",
+  "coincide": false,
+  "corrida1": {
+   "muestras": 160596,
+   "media_ms": 35.7,
+   "p95_ms": 3,
+   "max_ms": 108793,
+   "error_pct": 0.0,
+   "throughput": 1295.8
+  },
+  "corrida2": {
+   "muestras": 160432,
+   "media_ms": 34.4,
+   "p95_ms": 3,
+   "max_ms": 29858,
+   "error_pct": 0.0,
+   "throughput": 2444.7
+  }
+ },
+ {
+  "id": "q4-escalones",
+  "coincide": true,
+  "corrida1": {
+   "muestras": 172435,
+   "media_ms": 48.2,
+   "p95_ms": 3,
+   "max_ms": 35839,
+   "error_pct": 0.0,
+   "throughput": 1271.2
+  },
+  "corrida2": {
+   "muestras": 178005,
+   "media_ms": 45.8,
+   "p95_ms": 3,
+   "max_ms": 32910,
+   "error_pct": 0.0,
+   "throughput": 1426.9
+  }
+ },
+ {
+  "id": "q5-1min",
+  "coincide": true,
+  "corrida1": {
+   "muestras": 5458,
+   "media_ms": 1.7,
+   "p95_ms": 2,
+   "max_ms": 32,
+   "error_pct": 0.0,
+   "throughput": 92.3
+  },
+  "corrida2": {
+   "muestras": 5472,
+   "media_ms": 1.7,
+   "p95_ms": 2,
+   "max_ms": 28,
+   "error_pct": 0.0,
+   "throughput": 92.7
+  }
+ },
+ {
+  "id": "q6-seleccion",
+  "coincide": true,
+  "corrida1": {
+   "muestras": 54373,
+   "media_ms": 1.6,
+   "p95_ms": 2,
+   "max_ms": 1232,
+   "error_pct": 0.0,
+   "throughput": 909.0
+  },
+  "corrida2": {
+   "muestras": 54709,
+   "media_ms": 1.3,
+   "p95_ms": 2,
+   "max_ms": 1067,
+   "error_pct": 0.0,
+   "throughput": 915.2
+  }
+ },
+ {
+  "id": "q6-tarifas",
+  "coincide": true,
+  "corrida1": {
+   "muestras": 54464,
+   "media_ms": 1.3,
+   "p95_ms": 2,
+   "max_ms": 1055,
+   "error_pct": 0.0,
+   "throughput": 910.2
+  },
+  "corrida2": {
+   "muestras": 54777,
+   "media_ms": 1.0,
+   "p95_ms": 2,
+   "max_ms": 1060,
+   "error_pct": 0.0,
+   "throughput": 916.6
+  }
+ },
+ {
+  "id": "q7-500-reservas",
+  "coincide": false,
+  "corrida1": {
+   "muestras": 5000,
+   "media_ms": 1489.3,
+   "p95_ms": 4119,
+   "max_ms": 105619,
+   "error_pct": 0.66,
+   "throughput": 43.9
+  },
+  "corrida2": {
+   "muestras": 5000,
+   "media_ms": 417.8,
+   "p95_ms": 2462,
+   "max_ms": 53834,
+   "error_pct": 0.0,
+   "throughput": 92.3
+  }
+ },
+ {
+  "id": "q8-distribuido",
+  "coincide": false,
+  "corrida1": {
+   "muestras": 500,
+   "media_ms": 25.8,
+   "p95_ms": 4,
+   "max_ms": 1302,
+   "error_pct": 0.0,
+   "throughput": 51.5
+  },
+  "corrida2": {
+   "muestras": 500,
+   "media_ms": 9.9,
+   "p95_ms": 3,
+   "max_ms": 1079,
+   "error_pct": 0.0,
+   "throughput": 51.4
+  }
+ },
+ {
+  "id": "q8-sincronizado",
+  "coincide": false,
+  "corrida1": {
+   "muestras": 500,
+   "media_ms": 28442.3,
+   "p95_ms": 126253,
+   "max_ms": 126273,
+   "error_pct": 16.6,
+   "throughput": 4.0
+  },
+  "corrida2": {
+   "muestras": 500,
+   "media_ms": 69621.3,
+   "p95_ms": 190264,
+   "max_ms": 190278,
+   "error_pct": 41.0,
+   "throughput": 2.6
+  }
+ },
+ {
+  "id": "q9-control-negativo",
+  "coincide": true,
+  "corrida1": {
+   "muestras": 120,
+   "media_ms": 3.7,
+   "p95_ms": 7,
+   "max_ms": 40,
+   "error_pct": 33.33,
+   "throughput": 151.7
+  },
+  "corrida2": {
+   "muestras": 120,
+   "media_ms": 3.5,
+   "p95_ms": 5,
+   "max_ms": 38,
+   "error_pct": 33.33,
+   "throughput": 149.4
+  }
+ },
+ {
+  "id": "q9-totales",
+  "coincide": true,
+  "corrida1": {
+   "muestras": 54728,
+   "media_ms": 1.4,
+   "p95_ms": 2,
+   "max_ms": 1059,
+   "error_pct": 0.0,
+   "throughput": 914.6
+  },
+  "corrida2": {
+   "muestras": 54534,
+   "media_ms": 1.1,
+   "p95_ms": 2,
+   "max_ms": 1057,
+   "error_pct": 0.0,
+   "throughput": 913.3
+  }
+ }
+]

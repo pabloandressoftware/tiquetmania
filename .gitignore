@@ -3,3 +3,4 @@ pruebas/jmeter/reporte/
 __pycache__/
 jmeter.log
 *.pyc
+pruebas/experimentacion/resultados_repeticion/*/reporte/

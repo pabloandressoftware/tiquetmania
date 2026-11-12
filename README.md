@@ -14,9 +14,11 @@ tiquetmania/
 │   └── experimentacion/                   EJERCICIO 2: "¿Qué pasaría si...?" (solo local, el pipeline no lo corre)
 │       ├── Experimentacion.jmx
 │       ├── datos.csv
-│       ├── resultados/                    reportes de cada escenario
+│       ├── resultados/                    reportes de cada escenario (1.ª corrida)
+│       ├── resultados_repeticion/         2.ª corrida: resumen, CPU y memoria (sin los reportes HTML)
+│       ├── repeticion_comparacion.json    comparación de las dos corridas
 │       └── entrega/                       Informe en Word y PDF, presentación en PowerPoint y PDF (entrega del ejercicio 2)
-├── scripts/                               generar_planes.py, correr_experimentos.py, generar_informe.py
+├── scripts/                               generar_planes.py, correr_experimentos.py, comparar_repeticiones.py, generar_informe.py
 ├── .github/workflows/pipeline.yml         el pipeline (GitHub solo lo lee en la raíz)
 └── README.md
 ```
@@ -117,5 +119,15 @@ export JMETER_HOME=/ruta/a/apache-jmeter-5.6.3
 python3 scripts/correr_experimentos.py --lista            # ver escenarios
 python3 scripts/correr_experimentos.py q1-20 q1-500       # correr algunos
 ```
+
+### Repetición de los escenarios
+
+Cada escenario se corrió dos veces (17 de 18; la prueba de 10 minutos de la pregunta 5 solo una).
+La segunda corrida se guarda con `CARPETA_RESULTADOS=resultados_repeticion python3 scripts/correr_experimentos.py ...` y se compara con `python3 scripts/comparar_repeticiones.py`.
+
+- **16 de 17** repiten la misma conclusión. Con carga normal los números casi no cambian y el error es 0 %.
+- **Pregunta 7:** los 33 errores de la primera corrida no aparecieron en la segunda (0 de 5 000). La respuesta del informe dice "a veces".
+- **Pregunta 8:** el escenario sincronizado tuvo 16,6 % de errores la primera vez y 41 % la segunda; el distribuido, 0 % las dos veces.
+- La segunda corrida se hizo con contenedores de Docker de otro proyecto en reposo; el CPU medio del equipo fue parecido al de la primera.
 
 El pipeline **no** ejecuta este plan.

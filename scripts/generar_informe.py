@@ -377,7 +377,7 @@ def construir():
     for x in ("Para CPU y memoria no usé PerfMon con ServerAgent. Escribí un muestreador propio (scripts/correr_experimentos.py, librería psutil) que anota CPU y memoria cada segundo del equipo completo, de JMeter y de la API. "
               "Mide lo mismo que PerfMon, pero no es el plugin que pide la guía.",
               "Para la pregunta 4 usé cuatro Grupos de Hilos estándar con retraso de inicio en lugar del Ultimate Thread Group, que es un plugin. El resultado es el mismo escalonado: 50, 100, 250 y 500 usuarios.",
-              "Los valores son de una sola ejecución por escenario. Son una referencia, no un promedio de varias repeticiones.",
+              "Cada escenario se corrió dos veces, salvo la prueba de 10 minutos de la pregunta 5, que se corrió una. Las tablas de cada pregunta son de la primera corrida; la comparación está en “Repetición de los escenarios”. Con solo dos corridas no se puede calcular un promedio confiable.",
               "Las capturas de los reportes son del reporte HTML de JMeter. La captura de JMeter con el plan abierto está arriba, y en cada pregunta hay una tabla con los parámetros exactos de esa ejecución."):
         doc.add_paragraph(x, style="List Bullet")
     doc.add_heading("Resumen de los 18 escenarios", level=2)
@@ -389,6 +389,33 @@ def construir():
     tabla(doc, ENC, [met_fila(i, n) for i, n in ids], ANCHOS, 7.5)
     parrafo(doc, "El rendimiento de esta tabla es peticiones ÷ tiempo desde el primer envío hasta la última respuesta. En los escenarios con respuestas muy lentas al final "
                  "(P3 sin temporizador, P4, P7, P8) esa cuenta se baja porque la prueba se alarga; en cada pregunta uso el rendimiento de los primeros 60 s cuando hace falta.", cursiva=True)
+    # ---- repetición
+    doc.add_heading("Repetición de los escenarios (segunda corrida)", level=2)
+    parrafo(doc, "La guía recomienda repetir cada escenario al menos dos veces. Corrí una segunda vez 17 de los 18 escenarios, con los mismos parámetros y en el mismo equipo. "
+                 "No repetí la prueba de 10 minutos de la pregunta 5, pero sí su par de 1 minuto. Las tablas y gráficas de cada pregunta son de la primera corrida; "
+                 "esta sección compara las dos. Los resultados de la segunda corrida están en pruebas/experimentacion/resultados_repeticion/.")
+    comp = json.load(open(os.path.join(EXP, "repeticion_comparacion.json"), encoding="utf-8"))
+    nombres = dict(ids)
+    notas = {"q3-sin-timer": "Sí*", "q8-distribuido": "Sí*", "q8-sincronizado": "Sí*", "q7-500-reservas": "No"}
+    filas = []
+    for i, _ in ids:
+        c = next((x for x in comp if x["id"] == i), None)
+        if not c:
+            continue
+        a_, b_ = c["corrida1"], c["corrida2"]
+        filas.append([nombres[i], f'{a_["media_ms"]} / {b_["media_ms"]}', f'{a_["p95_ms"]} / {b_["p95_ms"]}', f'{a_["error_pct"]} / {b_["error_pct"]}',
+                      f'{a_["throughput"]} / {b_["throughput"]}', notas.get(i, "Sí")])
+    tabla(doc, ["Escenario", "Media (ms) 1.ª / 2.ª", "p95 (ms) 1.ª / 2.ª", "% Error 1.ª / 2.ª", "Rendimiento 1.ª / 2.ª", "¿Misma conclusión?"], filas, [3.8, 2.8, 2.6, 2.6, 3.0, 2.2], 7.5)
+    parrafo(doc, "Lectura: 16 de los 17 escenarios repiten la misma conclusión. Los de carga normal (preguntas 1, 2, 5, 6, 9 y 10) dan casi los mismos números en las dos corridas: "
+                 "la media, el p95 y el rendimiento cambian muy poco y el error es 0 %. La excepción es la pregunta 7: en la primera corrida 33 de 5 000 peticiones fallaron y en la segunda ninguna.")
+    for x in ("* P3 sin temporizador: el rendimiento total sale distinto (1 296 contra 2 445 por segundo) porque la primera corrida se alargó a 124 s por las respuestas lentas del final. "
+              "En los primeros 60 s las dos dieron cerca de 2 680 por segundo, con p95 de 3 ms y 0 % de error.",
+              "* P8 distribuido: la media cambió (25,8 contra 9,9 ms) por unas pocas peticiones lentas de cerca de 1 s (el p99 fue 1 099 ms la primera vez y 58 ms la segunda). El p95 (4 contra 3 ms) y el 0 % de error son iguales.",
+              "* P8 sincronizado: en las dos corridas hay muchos errores “Connection reset”, pero el tamaño cambió mucho: 16,6 % la primera vez y 41 % la segunda. La conclusión (sincronizado falla, distribuido no) se mantiene; el porcentaje no es estable.",
+              "P7: es la única que no se repitió. Los errores de la primera corrida no aparecieron en la segunda (la media bajó de 1 489 a 418 ms y el p95 de 4,1 a 2,5 s). Por eso la respuesta de la pregunta 7 dice “a veces”, no “siempre”."):
+        doc.add_paragraph(x, style="List Bullet")
+    parrafo(doc, "Condiciones: la segunda corrida se hizo con unos contenedores de Docker de otro proyecto encendidos en reposo (carga del equipo de 2,8 antes de empezar). "
+                 "El CPU medio del equipo durante las pruebas fue parecido en las dos corridas (por ejemplo, en 500 usuarios: 11,9 % la primera vez y 9,9 % la segunda), así que no parece haberlas alterado, pero no puedo asegurarlo.", cursiva=True)
     doc.add_page_break()
 
     def f_(**kw):
@@ -530,12 +557,16 @@ def construir():
               (["Dato", "Valor"], [["Respuestas exitosas", f"{len(ok7)} de 5 000"], ["Respuestas fallidas", f"{len(f7) - len(ok7)} (todas: Non HTTP response code: java.net.SocketException / Connection reset)"],
                                    ["Mediana de las exitosas", f"{pct(ok7, 50)} ms"], ["p95 de las exitosas", f"{pct(ok7, 95)} ms"], ["Máximo", f"{max(x['ms'] for x in f7)} ms"]], [4, 12])],
              [(fig_q7(), "Distribución del tiempo de respuesta (izquierda) y errores en el tiempo (derecha).")],
-             [f"No, no todas fueron exitosas. De 5 000 peticiones, {len(f7) - len(ok7)} ({g['total']['error_pct']} %) fallaron con “Connection reset”: el servidor cortó la conexión. Entre las que sí respondieron, la mayoría fue rápida (mediana de {pct(ok7, 50)} ms), "
+             ["A veces no. En la primera corrida, de 5 000 peticiones, "
+              f"{len(f7) - len(ok7)} ({g['total']['error_pct']} %) fallaron con “Connection reset”: el servidor cortó la conexión. Entre las que sí respondieron, la mayoría fue rápida (mediana de {pct(ok7, 50)} ms), "
               f"pero el p95 fue de {pct(ok7, 95) / 1000:.1f} segundos y hubo respuestas de más de 100 segundos.",
               "Lo importante es qué falló y qué no. Las reservas que se crearon fueron correctas: todas pasaron la validación de total (precio × cantidad) y devolvieron 201. Lo que no aguantó fue la llegada simultánea de conexiones: "
-              "la API no alcanza a aceptarlas todas a la vez, unas esperan varios segundos y otras se rechazan. Mi hipótesis es que se llena la fila de conexiones pendientes del servidor, pero no lo comprobé con herramientas de red."],
+              "la API no alcanza a aceptarlas todas a la vez, unas esperan varios segundos y otras se rechazan. Mi hipótesis es que se llena la fila de conexiones pendientes del servidor, pero no lo comprobé con herramientas de red.",
+              "Repetí el escenario y el resultado no fue igual: en la segunda corrida las 5 000 peticiones respondieron bien (0 fallidas), con media de 418 ms contra 1 489 ms y p95 de 2,5 s contra 4,1 s. "
+              "Lo que sí se repitió es el problema de fondo: tiempos de varios segundos y respuestas de más de 50 s cuando llegan 500 usuarios sin pausa. Los errores aparecen en unas corridas y en otras no."],
              ["Que el tiempo total sea de casi 2 minutos con 5 000 peticiones sin pausas confirma que el problema es la llegada en bloque, no la cantidad.",
-              "Un servidor real tendría una fila de conexiones más grande y quizá un balanceador. Esta API es un solo proceso de Python con la configuración básica."])
+              "Un servidor real tendría una fila de conexiones más grande y quizá un balanceador. Esta API es un solo proceso de Python con la configuración básica.",
+              "Solo tengo dos corridas y los errores salieron en una. No puedo decir con qué frecuencia aparecen; haría falta repetirlo más veces."])
 
     # ------------------------------------------------------------ P8
     a, b = R("q8-sincronizado"), R("q8-distribuido")
@@ -556,7 +587,8 @@ def construir():
               f"la mediana de las que sí respondieron fue de {pct(oka, 50) / 1000:.1f} s y el p95 de {pct(oka, 95) / 1000:.0f} s. "
               f"Cuando los mismos 500 usuarios llegan repartidos en 10 s (unos 50 por segundo), ninguna falló, la mediana fue de {pct(okb, 50)} ms y el p95 de {pct(okb, 95)} ms.",
               "La diferencia es lo que el temporizador sincronizado sirve para probar: un pico real de llegada simultánea, como cuando se abre la venta de boletas. "
-              "La llegada distribuida es más suave y por eso esconde el problema. Si solo hubiera probado de forma distribuida, habría concluido que la API aguanta 500 usuarios sin errores."],
+              "La llegada distribuida es más suave y por eso esconde el problema. Si solo hubiera probado de forma distribuida, habría concluido que la API aguanta 500 usuarios sin errores.",
+              "En la segunda corrida pasó lo mismo, con otro tamaño: el escenario sincronizado tuvo 41 % de errores (205 de 500) y el distribuido 0 %. El 16,6 % de la primera corrida no se repitió igual, así que cito los dos valores."],
              ["La simulación de “al mismo tiempo” es aproximada: JMeter libera los hilos a la vez, pero llegan a la API con diferencias de milisegundos.",
               "Este escenario y el de la pregunta 7 se parecen. La diferencia es que aquí cada usuario hace una sola petición y en la 7 hace 10 seguidas."])
 
@@ -614,9 +646,10 @@ def construir():
     for x in ("Con carga normal (pausas de 0,5 a 1,5 s) la API aguanta 500 usuarios sin problemas: el tiempo de respuesta no cambia y no hay errores (preguntas 1, 5 y 10).",
               "La API se satura cerca de las 2 300 peticiones por segundo. Antes de ese punto el throughput crece con los usuarios; después se estanca y los tiempos se disparan (preguntas 3, 4 y 10).",
               "El límite que se encontró es el de un solo proceso de la API, no del equipo completo. El CPU del equipo se quedó por debajo del 55 % (pregunta 10).",
-              "Lo que más daña a la API es la llegada simultánea de muchas conexiones: 500 usuarios al mismo tiempo produjeron errores de “Connection reset” (16,6 % en la pregunta 8 y 0,66 % en la 7), mientras que repartidos nunca fallaron (preguntas 7 y 8).",
+              "Lo que más daña a la API es la llegada simultánea de muchas conexiones: 500 usuarios al mismo tiempo produjeron errores de “Connection reset” (16,6 % y 41 % en las dos corridas de la pregunta 8; en la pregunta 7, 0,66 % en una corrida y 0 % en la otra), mientras que repartidos nunca fallaron (pregunta 8).",
               "La lógica de negocio es correcta bajo carga: el total siempre fue precio × cantidad (pregunta 9).",
-              "Las pausas definen qué estoy midiendo: con temporizadores simulo personas, sin ellos mido el límite de la API (pregunta 3)."):
+              "Las pausas definen qué estoy midiendo: con temporizadores simulo personas, sin ellos mido el límite de la API (pregunta 3).",
+              "Repetir importa: la carga normal da lo mismo en las dos corridas, pero los errores de concurrencia no son estables (pregunta 7: aparecen o no; pregunta 8: 16,6 % o 41 %)."):
         doc.add_paragraph(x, style="List Bullet")
     doc.add_heading("Cómo reproducir", level=2)
     parrafo(doc, "python3 scripts/correr_experimentos.py (todos los escenarios) o con el nombre de uno, por ejemplo q4-escalones. Los reportes HTML quedan en pruebas/experimentacion/resultados/<escenario>/reporte/index.html.")
